@@ -7,6 +7,9 @@ const PORT = process.env.PORT || 5000;
 
 
 const db = require("./config/key").mongoURI;
+require('./models/users/user')
+
+
 
 mongoose.connect(db, {
     useNewUrlParser: true,
