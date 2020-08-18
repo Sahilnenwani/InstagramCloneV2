@@ -17,6 +17,10 @@ app.use(require('./routes/signup.routes'))
 //signin routes
 app.use(require('./routes/signin.routes'))
 
+//protected routes
+
+app.use(require('./routes/protected.routes'))
+
 mongoose.connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
