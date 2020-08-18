@@ -10,7 +10,12 @@ const db = require("./config/key").mongoURI;
 require('./models/users/user')
 
 app.use(express.json())
-app.use(require('./routes/auth'))
+
+//signup routes
+app.use(require('./routes/signup.routes'))
+
+//signin routes
+app.use(require('./routes/signin.routes'))
 
 mongoose.connect(db, {
     useNewUrlParser: true,
@@ -22,9 +27,9 @@ mongoose.connect(db, {
 
 
 
-// app.get('/',(req,res)=>{
-//     res.send("Server Is Running!");
-// })
+app.get('/',(req,res)=>{
+    res.send("Server Is Running!");
+})
 
 app.listen(PORT,()=>{
     console.log(`Server is runnig http://localhost:${PORT}/`)
