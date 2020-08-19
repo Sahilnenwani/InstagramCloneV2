@@ -2,14 +2,15 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const Post = mongoose.model("Post")
+const requiredLogin = require('../../middleware/requireLogin')
 
 
-router.get('/allpost',(req,res)=>{
-// populate use which thing you want to seen in api 
-    Post.find()
+router.get('/mypost',requiredLogin,(req,res)=>{
+    Post.find({postedBy:req.user._id})
     .populate("postedBy","_id name")
-    .then(posts=>{
-        res.json({posts})
+    .then(mypost=>{
+        res.json({mypost})
+
     })
     .catch(err=>console.log(err))
 
@@ -17,7 +18,4 @@ router.get('/allpost',(req,res)=>{
 
 
 
-
-
-
- module.exports = router
+module.exports = router

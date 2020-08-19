@@ -28,6 +28,8 @@ app.use(require('./routes/auth/protected.routes'))
 app.use(require('./routes/post/createpost.routes'))
 //allpost Getroutes
 app.use(require('./routes/post/allpost.routes'))
+//mypost getroutes
+app.use(require('./routes/post/mypost.routes'))
 
 
 
