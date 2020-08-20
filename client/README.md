@@ -78,6 +78,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 
-https://materializecss.com/
-https://material-ui-x.netlify.app/?path=/story/1-docs-2-columns--page
-https://material-ui.com/
