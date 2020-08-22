@@ -17,7 +17,7 @@ const Signup = () => {
         type="password"
         placeholder="password"
         />
-        <button className="btn waves-effect waves-light #64b5f6 blue lighten-2">Signup</button>
+        <button className="btn waves-effect waves-light #64b5f6 blue darken-1">Signup</button>
         <h5>
             <Link to="/signin">Already have an account ?</Link>
         </h5>
