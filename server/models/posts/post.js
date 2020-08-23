@@ -13,7 +13,7 @@ body:{
 },
 photo:{
     type:String,
-    default:"np photo"
+    required:true
 },
 postedBy:{
     type:ObjectId,
