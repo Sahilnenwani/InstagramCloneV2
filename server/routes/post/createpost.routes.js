@@ -18,7 +18,7 @@ router.post('/createpost',requiredLogin,(req,res)=>{
     const post = new Post({
         title,
         body,
-        pic,
+        photo:pic,
         postedBy:req.user
     })
     post.save().then(result=>{
