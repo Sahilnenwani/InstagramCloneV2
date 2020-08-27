@@ -10,10 +10,7 @@ useEffect(()=>{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
         }).then(res=>res.json())
-        .then(result=>{
-            
-             setDate(result.posts)
-        })
+        .then(result=>setDate(result.posts))
 },[])
 
 

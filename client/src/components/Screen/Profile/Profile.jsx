@@ -1,6 +1,24 @@
-import React from 'react'
-
+import React,{useState,useEffect,useContext} from 'react'
+import {UserContext} from '../../../App'
 const Profile = ()=> {
+
+
+    const[mypics,setPics] = useState([])
+    const {state,dispatch} = useContext(UserContext)
+    console.log(state)
+    useEffect(()=>{
+
+        fetch('/mypost',{
+            headers:{
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            }
+        }).then(res=>res.json())
+        .then(result=>setPics(result.mypost))
+
+
+    },[])
+
+
     return (
        
         <div style={{
@@ -19,7 +37,7 @@ const Profile = ()=> {
                     />
                 </div>
                 <div>
-                    <h4>Sharoz Raees</h4>
+                    <h4>{state?state.name:"loading"}</h4>
                     <div style={{
                         display:"flex",
                         justifyContent:"space-between",
@@ -33,13 +51,16 @@ const Profile = ()=> {
             </div>
         
         <div className="gallery">
-                    <img className="item" src="https://images.unsplash.com/photo-1550927407-50e2bd128b81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
-                    <img className="item" src="https://images.unsplash.com/photo-1550927407-50e2bd128b81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
-                    <img className="item" src="https://images.unsplash.com/photo-1550927407-50e2bd128b81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
-                    <img className="item" src="https://images.unsplash.com/photo-1550927407-50e2bd128b81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
-                    <img className="item" src="https://images.unsplash.com/photo-1550927407-50e2bd128b81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
-                    <img className="item" src="https://images.unsplash.com/photo-1550927407-50e2bd128b81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
-        </div>
+            {
+                mypics.map(item=>{
+                    return(
+                       
+                       <img key={item._id} className="item" src={item.photo}  alt={item.title} />
+                    )
+                })
+            }
+                   
+       </div>
         
         </div>
     )
