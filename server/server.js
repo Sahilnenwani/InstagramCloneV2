@@ -32,6 +32,12 @@ app.use(require('./routes/post/allpost.routes'))
 app.use(require('./routes/post/mypost.routes'))
 
 
+//this is post likes and unlikes routes
+//likeput and update use $push
+app.use(require('./routes/like/like.routes'))
+//unlikeput and update use $pull
+app.use(require('./routes/like/unlike.routes'))
+
 
 mongoose.connect(db, {
     useNewUrlParser: true,
