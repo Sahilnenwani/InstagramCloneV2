@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useContext} from 'react'
+import M from "materialize-css";
 
 import { UserContext } from "../../../App";
 const Home=()=>{
@@ -78,6 +79,35 @@ const unlikePost = (id) =>{
 
 
 
+const makecomment = (text,postId) =>{
+
+    fetch('/comment',{
+        method:"put",
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":"Bearer "+localStorage.getItem("jwt")
+        },
+        body:JSON.stringify({
+            postId,
+            text
+        })
+
+    }).then(res=>res.json())
+    .then(result=>{
+        console.log(result)
+        const newData = data.map(item=>{
+            if (item._id==result._id) {
+                return result
+            }
+            else{
+                return item
+            }
+        })
+        setDate(newData)
+    }).catch(err=>console.log(err))
+}
+
+
     return (
        
        <div className="Home">
@@ -111,7 +141,30 @@ const unlikePost = (id) =>{
                     <h6>{item.likes.length} likes</h6>
                     <h6>{item.title}</h6>
                         <p>{item.body}</p>
+                        {
+                            item.comments.map(record=>{
+                                return(
+                                <h6 key={record._id}><span style={{fontWeight:"500"}}>{record.postedBy.name}:</span> {record.text}</h6>
+                                )
+                            })
+                        }
+                        <form onSubmit={(e)=>{
+                            e.preventDefault()
+                            //console.log(e.target[0].value)
+                            
+                            if(!e.target[0].value==""){
+                                
+                                makecomment(e.target[0].value,item._id)
+                                e.target[0].value=""
+                            }
+                            else{
+                                M.toast({html:"Give some Comment", classes: ' rounded #1e88e5 blue darken-1'})
+                            }
+                        }}>
+
                         <input type="text" placeholder="add a comment" />
+
+                        </form>
                     </div>
                    </div>
 

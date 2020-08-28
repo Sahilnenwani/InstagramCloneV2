@@ -9,6 +9,7 @@ router.get('/allpost',requiredLogin,(req,res)=>{
 // populate use which thing you want to seen in api 
     Post.find()
     .populate("postedBy","_id name")
+    .populate("comments.postedBy","_id name")
     .then(posts=>{
         res.json({posts})
     })
