@@ -37,13 +37,13 @@ app.use(require('./routes/post/mypost.routes'))
 app.use(require('./routes/like/like.routes'))
 //unlikeput and update use $pull
 app.use(require('./routes/like/unlike.routes'))
+//post delete
+app.use(require('./routes/post/deletePost.routes'))
 
 
 //this is post comments routes
 //commentsput and update use $push
 app.use(require('./routes/comments/comments.routes'))
-//comments delete
-app.use(require('./routes/post/deletePost.routes'))
 
 
 
