@@ -42,6 +42,8 @@ app.use(require('./routes/like/unlike.routes'))
 //this is post comments routes
 //commentsput and update use $push
 app.use(require('./routes/comments/comments.routes'))
+//comments delete
+app.use(require('./routes/comments/deletecomments.routes'))
 
 
 
