@@ -49,6 +49,13 @@ app.use(require('./routes/comments/comments.routes'))
 
 
 
+//This is User Profile routes to seen the user
+//userprofiles is get routes
+app.use(require('./routes/userprofile/userprofile.routes'))
+
+
+
+
 mongoose.connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
