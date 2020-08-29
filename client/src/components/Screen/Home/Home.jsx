@@ -1,5 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react'
 import M from "materialize-css";
+import {Link} from 'react-router-dom'
 
 import { UserContext } from "../../../App";
 const Home=()=>{
@@ -136,7 +137,7 @@ const deletePost = (postid)=>{
 
 
                     <div className="card home-card" key={item._id}>
-                    <h5> {item.postedBy.name} 
+                    <h5><Link to={item.postedBy._id !== state._id?`/profile/${item.postedBy._id}`:'/profile'}>{item.postedBy.name}</Link> 
                     {item.postedBy._id == state._id
                     &&
                     <i class="material-icons" style={{float:"right",cursor: "pointer"}}
