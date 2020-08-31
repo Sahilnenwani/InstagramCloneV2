@@ -5,7 +5,7 @@ const Profile = ()=> {
 
     const[mypics,setPics] = useState([])
     const {state,dispatch} = useContext(UserContext)
-    console.log(state)
+    // console.log(state)
     useEffect(()=>{
 
         fetch('/mypost',{
@@ -45,6 +45,8 @@ const Profile = ()=> {
                         width:'108%'
                     }}>
                         <h6>{mypics.length} posts</h6>
+
+                   
                         <h6>{state?state.followers.length:"0"} followers</h6>
                         <h6>{state?state.following.length:"0"} following</h6>
                     </div>

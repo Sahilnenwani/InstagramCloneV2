@@ -30,6 +30,8 @@ app.use(require('./routes/post/createpost.routes'))
 app.use(require('./routes/post/allpost.routes'))
 //mypost getroutes
 app.use(require('./routes/post/mypost.routes'))
+//getsubpost getroutes
+app.use(require('./routes/post/getsubpost.routes'))
 
 
 //this is post likes and unlikes routes
