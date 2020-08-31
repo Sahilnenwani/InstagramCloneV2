@@ -43,9 +43,9 @@ const Profile = ()=> {
                         justifyContent:"space-between",
                         width:'108%'
                     }}>
-                        <h5>56 posts</h5>
-                        <h5>122 followers</h5>
-                        <h5>465 following</h5>
+                        <h6>{mypics.length} posts</h6>
+                        <h6>{state?state.followers.length:"0"} followers</h6>
+                        <h6>{state?state.following.length:"0"} following</h6>
                     </div>
                 </div>
             </div>
