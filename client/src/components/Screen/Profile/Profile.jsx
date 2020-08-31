@@ -37,7 +37,8 @@ const Profile = ()=> {
                     />
                 </div>
                 <div>
-                    <h4>{state?state.name:"loading"}</h4>
+                    <h4> {state?state.name:"loading"} </h4>
+                    <h4> {state?state.email:"loading"} </h4>
                     <div style={{
                         display:"flex",
                         justifyContent:"space-between",
