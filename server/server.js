@@ -55,6 +55,15 @@ app.use(require('./routes/userprofile/userprofile.routes'))
 
 
 
+//this is User profile follower and following routes
+//user follower and following routes is put routes use push key word
+app.use(require('./routes/follower&following/followers&following.routes'))
+//User unfollower and unnfollowing routes is also put routes use pull key word
+app.use(require('./routes/follower&following/unfollower&unfollowing.routes'))
+
+
+
+
 
 mongoose.connect(db, {
     useNewUrlParser: true,
