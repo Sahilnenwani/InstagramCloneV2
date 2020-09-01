@@ -5,7 +5,7 @@ const Post = mongoose.model("Post")
 const requiredLogin = require('../../middleware/requireLogin')
 
 
-router.get('/getsubpost following ',requiredLogin,(req,res)=>{
+router.get('/getsubpost',requiredLogin,(req,res)=>{
 // populate use which thing you want to seen in api 
     Post.find({postedBy:{$in:req.user.following}})
     .populate("postedBy","_id name")
