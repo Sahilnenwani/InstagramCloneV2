@@ -9,8 +9,8 @@ const Profile = ()=> {
     const[userProfile,setProfile] = useState(null)
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useParams()
-    //const [showfollow,setShowFollow] = useState(state?!state.following.includes(userid):true)
-    const [showfollow,setShowFollow] = useState(true)
+    const [showfollow,setShowFollow] = useState(state?!state.following.includes(userid):false)
+    
    
     
     useEffect(()=>{
