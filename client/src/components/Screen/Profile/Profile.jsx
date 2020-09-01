@@ -33,7 +33,7 @@ const Profile = ()=> {
             }}>
                 <div>
                     <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
-                   src="https://instagram.fkhi2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/33322403_1511327815661713_7310469237590458368_n.jpg?_nc_ht=instagram.fkhi2-1.fna.fbcdn.net&_nc_ohc=NqfklR4PdMUAX9GV1pQ&oh=6c04544b816dee5133a8f57ab2043808&oe=5F67DCDA"
+                   src={state?state.pic:"loading"}
                     />
                 </div>
                 <div>

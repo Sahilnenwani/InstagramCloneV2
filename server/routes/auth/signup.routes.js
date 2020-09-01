@@ -14,7 +14,7 @@ const {JWT_SECRET} = require('../../config/key')
 
 router.post('/signup',(req,res)=>{
 
-const {name,email,password} = req.body
+const {name,email,password,pic} = req.body
 
 if(!email||!password||!name){
  
@@ -37,7 +37,8 @@ bcrypt.hash(password,12)
     const user =  new User({
         email,
         password:hashedpassword,
-        name
+        name,
+        pic
     })
 
     user.save()

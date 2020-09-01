@@ -27,7 +27,7 @@ const Navbar = () => {
               history.push('/signin')
             }}
           >
-            Loout
+            LOGOUT
           </button>
         </li>,
       ];
