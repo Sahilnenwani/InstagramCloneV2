@@ -49,6 +49,11 @@ app.use(require('./routes/comments/comments.routes'))
 
 
 
+//pic update database routes
+//pic routes is put routes to update pic use key set
+app.use(require('./routes/pic/picupdate.routes'))
+
+
 
 
 //This is User Profile routes to seen the user
