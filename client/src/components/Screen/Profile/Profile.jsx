@@ -33,7 +33,10 @@ useEffect(()=>{
            body:data
        })
        .then(res=>res.json())
-       .then(data=>setUrl(data.url))
+       .then(data=>{
+        setUrl(data.url) 
+        console.log(data)
+    })
        .catch(err=>console.log(err))
 
     }
