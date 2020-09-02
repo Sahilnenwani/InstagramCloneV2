@@ -36,6 +36,9 @@ useEffect(()=>{
        .then(data=>{
         setUrl(data.url) 
         console.log(data)
+        localStorage.setItem("user",JSON.stringify({...state,pic:data.url}))
+        dispatch({type:"UPDATEPIC",payload:data.url})
+        window.location.reload()
     })
        .catch(err=>console.log(err))
 
