@@ -5,7 +5,6 @@ const Profile  = ()=>{
     const [mypics,setPics] = useState([])
     const {state,dispatch} = useContext(UserContext)
     const [image,setImage] = useState("")
-    
     useEffect(()=>{
        fetch('/mypost',{
            headers:{
@@ -22,8 +21,8 @@ const Profile  = ()=>{
         const data = new FormData()
         data.append("file",image)
         data.append("upload_preset","insta-clone")
-        data.append("cloud_name","cnq")
-        fetch("https://api.cloudinary.com/v1_1/cnq/image/upload",{
+        data.append("cloud_name","LastCode")
+        fetch("https://api.cloudinary.com/v1_1/lastcode/image/upload",{
             method:"post",
             body:data
         })
@@ -45,7 +44,7 @@ const Profile  = ()=>{
                console.log(result)
                localStorage.setItem("user",JSON.stringify({...state,pic:result.pic}))
                dispatch({type:"UPDATEPIC",payload:result.pic})
-               
+               //window.location.reload()
            })
        
         })
