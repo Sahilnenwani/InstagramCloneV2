@@ -35,8 +35,8 @@ useEffect(()=>{
        .then(res=>res.json())
        .then(data=>{
        
-        localStorage.setItem("user",JSON.stringify({...state,pic:data.url}))
-        dispatch({type:"UPDATEPIC",payload:data.url})
+        // localStorage.setItem("user",JSON.stringify({...state,pic:data.url}))
+        // dispatch({type:"UPDATEPIC",payload:data.url})
 
         fetch('/updatepic',{
             method:"put",
@@ -50,7 +50,7 @@ useEffect(()=>{
         }).then(res=>res.json())
         .then(result=>console.log(result))
 
-        window.location.reload()
+        // window.location.reload()
     })
        .catch(err=>console.log(err))
 
