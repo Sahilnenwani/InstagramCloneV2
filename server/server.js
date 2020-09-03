@@ -51,7 +51,7 @@ app.use(require('./routes/comments/comments.routes'))
 
 //pic update database routes
 //pic routes is put routes to update pic use key set
-app.use(require('./routes/pic/picupdate.routes'))
+//app.use(require('./routes/pic/picupdate.routes'))
 
 
 

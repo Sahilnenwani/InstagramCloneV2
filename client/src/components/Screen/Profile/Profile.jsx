@@ -60,8 +60,7 @@ const Profile  = ()=>{
     const updatePhoto = (file)=>{
         setImage(file)
     }
-    console.log(image)
-    console.log(mypics)
+    
     console.log(state)
    return (
        <div style={{maxWidth:"550px",margin:"0px auto"}}>
@@ -78,7 +77,7 @@ const Profile  = ()=>{
            }}>
                <div>
                    <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
-                   src={state?state.pic:"loading"}
+                   src={state?state.pic:"loading"} 
                    />
                  
                </div>
@@ -110,9 +109,7 @@ const Profile  = ()=>{
                    mypics.map(item=>{
                     
                        return(
-                         
                         <img key={item._id} className="item" src={item.photo} alt={item.title}/>  
-                      
                        )
                    })
                }
