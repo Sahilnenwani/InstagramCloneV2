@@ -4,6 +4,7 @@
 // fetch("https://api.cloudinary.com/v1_1/lastcode/image/upload"
 import React,{useEffect,useState,useContext} from 'react'
 import {UserContext} from '../../../App'
+import M from "materialize-css";
 
 const Profile  = ()=>{
     const [mypics,setPics] = useState([])
@@ -48,7 +49,7 @@ const Profile  = ()=>{
                //console.log(result)
                localStorage.setItem("user",JSON.stringify({...state,pic:result.pic}))
                dispatch({type:"UPDATEPIC",payload:result.pic})
-               //window.location.reload()
+               window.location.reload()
            })
        
         })
@@ -96,7 +97,11 @@ const Profile  = ()=>{
             <div className="file-field input-field" style={{margin:"10px"}}>
             <div className="btn #64b5f6 blue darken-1">
                 <span>Update pic</span>
-                <input type="file" onChange={(e)=>updatePhoto(e.target.files[0])} />
+                <input type="file" onChange={(e)=>{
+                    updatePhoto(e.target.files[0])
+                    M.toast({html:"Reload Page",classes:"#43a047 green darken-1"})
+                   
+                    }} />
             </div>
             <div className="file-path-wrapper">
                 <input className="file-path validate" type="text" />
