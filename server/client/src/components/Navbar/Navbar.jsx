@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { Link,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Navbar = () => {
   const { state, dispatch } = useContext(UserContext);
-  const history = useHistory()
+  const history = useHistory();
 
   const renderList = () => {
     if (state) {
@@ -21,10 +21,10 @@ const Navbar = () => {
         <li>
           <button
             className="btn #c62828 red darken-3"
-            onClick={() => { 
-              localStorage.clear()
-              dispatch({type:"CLEAR"})
-              history.push('/signin')
+            onClick={() => {
+              localStorage.clear();
+              dispatch({ type: "CLEAR" });
+              history.push("/signin");
             }}
           >
             LOGOUT
@@ -47,7 +47,7 @@ const Navbar = () => {
     <nav>
       <div className="nav-wrapper white">
         <Link to={state ? "/" : "/signin"} className="brand-logo left">
-        Instamini
+          Instamini
         </Link>
         <ul id="nav-mobile" className="right">
           {renderList()}
