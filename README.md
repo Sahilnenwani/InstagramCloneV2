@@ -45,3 +45,11 @@ app.get('\*',(req,res)=>res.sendFile(path.resolve(\_\_dirname,'client','build','
 11 then crearte enviorment variable database connection string , jwt token and another variable you want to use your aap
 
 12 url create use and share you friends and client aur progaram manager to check and web site :)
+
+---
+
+Email Api SendGrid
+https://app.sendgrid.com
+
+Api Key is:
+SG.Oc9JMGhwSoyzgCsGjuWWAA.TJ48cLNQItl3PuzZd3fiqJlSgCIa5\_-PKF3rA79S6hk

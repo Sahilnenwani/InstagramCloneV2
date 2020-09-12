@@ -6,6 +6,17 @@ const User = mongoose.model("User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../../config/key");
+const nodemailer = require("nodemailer");
+const sendgribtransport = require("nodemailer-sendgrid-transport");
+
+const transporter = nodemailer.createTransport(
+  sendgribtransport({
+    auth: {
+      api_key:
+        "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",
+    },
+  })
+);
 
 //make sigiup routes
 
@@ -35,6 +46,13 @@ router.post("/signup", (req, res) => {
         user
           .save()
           .then((user) => {
+            // transporter.sendMail({
+            //   to: user.email,
+            //   from: "no-reply@miniinsta.com",
+            //   subject: "signup success",
+            //   html: "<h1>welcome to MiniInstagram</h1>",
+            // });
+
             res.json({ messagge: "saved successfully" });
           })
           .catch((err) => console.log(err));
