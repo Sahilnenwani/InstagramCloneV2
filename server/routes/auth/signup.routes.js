@@ -46,12 +46,12 @@ router.post("/signup", (req, res) => {
         user
           .save()
           .then((user) => {
-            // transporter.sendMail({
-            //   to: user.email,
-            //   from: "no-reply@miniinsta.com",
-            //   subject: "signup success",
-            //   html: "<h1>welcome to MiniInstagram</h1>",
-            // });
+            transporter.sendMail({
+              to: user.email,
+              from: "no-reply@miniinsta.com",
+              subject: "signup success",
+              html: "<h1>welcome to MiniInstagram</h1>",
+            });
 
             res.json({ messagge: "saved successfully" });
           })

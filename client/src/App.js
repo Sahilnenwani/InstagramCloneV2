@@ -10,6 +10,7 @@ import Createpost from "./components/Screen/Createpost/Createpost";
 import UserProfile from "./components/Screen/UserProfile/UserProfile";
 import { reducer, initialstate } from "./Reducers/UserReducer/UserReducer";
 import SubscribesUserPost from "./components/Screen/SubscribesUserPost/SubscribesUserPost";
+import ResetPassword from "./components/Screen/Resetpassword/ResetPassword";
 
 export const UserContext = createContext();
 
@@ -23,7 +24,9 @@ const Routing = () => {
       dispatch({ type: "USER", payload: user });
       // history.push('/')
     } else {
-      history.push("/signin");
+      if (!history.location.pathname.startsWith("/reset")) {
+        history.push("/signin");
+      }
     }
   }, []);
 
@@ -36,6 +39,7 @@ const Routing = () => {
       <Route path="/createpost" component={Createpost} />
       <Route path="/profile/:userid" component={UserProfile} />
       <Route path="/myfollowingpost" component={SubscribesUserPost} />
+      <Route path="/reset" component={ResetPassword} />
     </Switch>
   );
 };

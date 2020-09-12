@@ -55,6 +55,9 @@ app.use(require("./routes/follower&following/followers&following.routes"));
 //User unfollower and unnfollowing routes is also put routes use pull key word
 app.use(require("./routes/follower&following/unfollower&unfollowing.routes"));
 
+//this use for reset password work in my app its is post routes
+app.use(require("./routes/auth/resetpassword.routes"));
+
 mongoose
   .connect(db, {
     useNewUrlParser: true,
