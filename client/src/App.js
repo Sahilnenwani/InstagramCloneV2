@@ -40,8 +40,8 @@ const Routing = () => {
       <Route path="/createpost" component={Createpost} />
       <Route path="/profile/:userid" component={UserProfile} />
       <Route path="/myfollowingpost" component={SubscribesUserPost} />
-      <Route path="/reset" component={ResetPassword} />
-      <Route path="/reset/:token" exact component={NewPassword} />
+      <Route path="/reset" exact component={ResetPassword} />
+      <Route path="/reset/:token" component={NewPassword} />
     </Switch>
   );
 };

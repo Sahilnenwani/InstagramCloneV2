@@ -29,7 +29,7 @@ router.post("/reset-password", (req, res) => {
       }
       user.resetToken = token;
       user.expireToken = Date.now() + 3600000;
-      user.save().then((result) => {
+      user.save().then((user) => {
         transporter.sendMail({
           to: user.email,
           from: "no-replay@insta.com",

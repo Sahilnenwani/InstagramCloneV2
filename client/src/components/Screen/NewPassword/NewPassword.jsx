@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import M from "materialize-css";
 
 const Signin = () => {
   const history = useHistory();
   const [password, setPassword] = useState("");
+  const { token } = useParams();
+  console.log(token);
   const PostData = () => {
     fetch("/signin", {
       method: "post",
@@ -46,11 +48,8 @@ const Signin = () => {
           className="btn waves-effect waves-light #64b5f6 blue darken-1"
           onClick={() => PostData()}
         >
-          Login
+          Update password
         </button>
-        <h5>
-          <Link to="/signup">Don't have an account ?</Link>
-        </h5>
       </div>
     </div>
   );
