@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import M from "materialize-css";
 
 const Signin = () => {
@@ -8,13 +8,14 @@ const Signin = () => {
   const { token } = useParams();
   console.log(token);
   const PostData = () => {
-    fetch("/signin", {
+    fetch("/new-password", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         password,
+        token,
       }),
     })
       .then((res) => res.json())
