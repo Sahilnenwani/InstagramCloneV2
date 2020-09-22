@@ -81,6 +81,13 @@ const Navbar = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+
+          <ul className="collection">
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+          </ul>
         </div>
         <div className="modal-footer">
           <button className="modal-close waves-effect waves-green btn-flat">
