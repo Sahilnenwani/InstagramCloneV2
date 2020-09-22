@@ -135,7 +135,7 @@ const Home = () => {
               </Link>
               {item.postedBy._id == state._id && (
                 <i
-                  class="material-icons"
+                  className="material-icons"
                   style={{ float: "right", cursor: "pointer" }}
                   onClick={() => deletePost(item._id)}
                 >
