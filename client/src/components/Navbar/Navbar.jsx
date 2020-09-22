@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
-
+import M from "materialize-css";
 const Navbar = () => {
+  const searchModal = useRef(null);
+  const [search, setSearch] = useState("");
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
+  useEffect(() => {
+    M.Modal.init(searchModal.current);
+  }, []);
 
   const renderList = () => {
     if (state) {
@@ -63,18 +68,24 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div id="modal1" className="modal">
+      <div
+        id="modal1"
+        className="modal"
+        ref={searchModal}
+        style={{ color: "black" }}
+      >
         <div className="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+          <input
+            type="text"
+            placeholder="search users"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
         <div className="modal-footer">
-          <a
-            href="#!"
-            className="modal-close waves-effect waves-green btn-flat"
-          >
-            Agree
-          </a>
+          <button className="modal-close waves-effect waves-green btn-flat">
+            Close
+          </button>
         </div>
       </div>
     </nav>
