@@ -87,6 +87,16 @@ const Navbar = () => {
             <li className="collection-item">Alvin</li>
             <li className="collection-item">Alvin</li>
             <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
+            <li className="collection-item">Alvin</li>
           </ul>
         </div>
         <div className="modal-footer">

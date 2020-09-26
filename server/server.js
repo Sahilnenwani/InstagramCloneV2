@@ -59,6 +59,9 @@ app.use(require("./routes/follower&following/unfollower&unfollowing.routes"));
 app.use(require("./routes/auth/resetpassword.routes"));
 //this use of reset password to newpassword update password post routes
 app.use(require("./routes/auth/newpassword.routes"));
+// thhis user find routes by use email yah or searching routes
+app.use(require("./routes/userprofile/searchuser.routes"));
+
 mongoose
   .connect(db, {
     useNewUrlParser: true,
