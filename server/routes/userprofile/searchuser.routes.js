@@ -9,6 +9,7 @@ router.post("/search-users", (req, res) => {
   let userpattern = new RegExp("^" + req.body.query);
   // let userpattern = new RegExp(`^${req.body.query}`)
   User.find({ email: { $regex: userpattern } })
+    .select("_id email")
     .then((user) => {
       res.json({ user });
     })

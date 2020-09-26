@@ -57,6 +57,19 @@ const Navbar = () => {
     }
   };
 
+  const FetchUsers = (query) => {
+    setSearch(query);
+    fetch("/search-users", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query }),
+    })
+      .then((res) => res.json())
+      .then((results) => console.log(results));
+  };
+
   return (
     <nav>
       <div className="nav-wrapper white">
@@ -79,7 +92,7 @@ const Navbar = () => {
             type="text"
             placeholder="search users"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => FetchUsers(e.target.value)}
           />
 
           <ul className="collection">
