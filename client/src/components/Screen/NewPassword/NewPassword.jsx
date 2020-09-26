@@ -6,7 +6,7 @@ const Signin = () => {
   const history = useHistory();
   const [password, setPassword] = useState("");
   const { token } = useParams();
-  console.log(token);
+
   const PostData = () => {
     fetch("/new-password", {
       method: "post",
@@ -20,7 +20,6 @@ const Signin = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
         if (data.error) {
           M.toast({ html: data.error, classes: "#c62828 red darken-3" });
         } else {

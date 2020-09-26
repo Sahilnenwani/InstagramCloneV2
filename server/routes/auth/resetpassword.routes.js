@@ -5,8 +5,8 @@ const User = mongoose.model("User");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
-const user = process.env.USER || "instaminiheroku@gmail.com";
-const pass = process.env.PASS || "instaminiheroku007";
+const user = process.env.USER;
+const pass = process.env.PASS;
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",

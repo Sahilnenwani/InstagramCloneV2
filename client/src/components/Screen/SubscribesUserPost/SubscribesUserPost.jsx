@@ -16,7 +16,6 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setDate(result.posts);
       });
   }, []);
@@ -34,7 +33,6 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        //console.log(result)
         const newData = data.map((item) => {
           if (item._id == result._id) {
             return result;
@@ -60,8 +58,6 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        //console.log(result)
-
         const newData = data.map((item) => {
           if (item._id == result._id) {
             return result;
@@ -88,7 +84,6 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         const newData = data.map((item) => {
           if (item._id == result._id) {
             return result;
@@ -110,7 +105,6 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         const newData = data.filter((item) => {
           return item._id !== result._id;
         });
@@ -148,37 +142,31 @@ const Home = () => {
               <img src={item.photo} />
             </div>
             <div className="card-content">
-              {/* <i className="material-icons" style={{color:"red"}}>favorite</i> */}
-
-              {
-                item.likes.includes(state._id) ? (
-                  //<i className="material-icons" onClick={()=>unlikePost(item._id)}>thumb_down</i>
-                  <i
-                    className="material-icons"
-                    onClick={() => unlikePost(item._id)}
-                    style={{
-                      color: "red",
-                      cursor: "pointer",
-                      fontSize: "2.5em",
-                    }}
-                  >
-                    favorite
-                  </i>
-                ) : (
-                  <i
-                    className="material-icons"
-                    onClick={() => likePost(item._id)}
-                    style={{
-                      color: "red",
-                      cursor: "pointer",
-                      fontSize: "2.5em",
-                    }}
-                  >
-                    favorite_border
-                  </i>
-                )
-                // <i className="material-icons" onClick={()=>likePost(item._id)}>thumb_up</i>
-              }
+              {item.likes.includes(state._id) ? (
+                <i
+                  className="material-icons"
+                  onClick={() => unlikePost(item._id)}
+                  style={{
+                    color: "red",
+                    cursor: "pointer",
+                    fontSize: "2.5em",
+                  }}
+                >
+                  favorite
+                </i>
+              ) : (
+                <i
+                  className="material-icons"
+                  onClick={() => likePost(item._id)}
+                  style={{
+                    color: "red",
+                    cursor: "pointer",
+                    fontSize: "2.5em",
+                  }}
+                >
+                  favorite_border
+                </i>
+              )}
 
               <h6>{item.likes.length} likes</h6>
               <h6>{item.title}</h6>
@@ -196,7 +184,6 @@ const Home = () => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  //console.log(e.target[0].value)
 
                   if (!e.target[0].value == "") {
                     makecomment(e.target[0].value, item._id);

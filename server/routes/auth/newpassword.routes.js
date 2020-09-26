@@ -2,19 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
-const crypto = require("crypto");
-const bcrypt = require("bcryptjs");
-const nodemailer = require("nodemailer");
-const sendgribtransport = require("nodemailer-sendgrid-transport");
 
-const transporter = nodemailer.createTransport(
-  sendgribtransport({
-    auth: {
-      api_key:
-        "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",
-    },
-  })
-);
+const bcrypt = require("bcryptjs");
 
 router.post("/new-password", (req, res) => {
   const newPassword = req.body.password;
