@@ -7,16 +7,19 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../../config/key");
 const nodemailer = require("nodemailer");
-const sendgribtransport = require("nodemailer-sendgrid-transport");
 
-const transporter = nodemailer.createTransport(
-  sendgribtransport({
-    auth: {
-      api_key:
-        "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",
-    },
-  })
-);
+const user = process.env.USER || "instaminiheroku@gmail.com";
+const pass = process.env.PASS || "instaminiheroku007";
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  service: "gmail",
+  auth: {
+    user,
+    pass,
+  },
+});
 
 //make sigiup routes
 
@@ -48,7 +51,7 @@ router.post("/signup", (req, res) => {
           .then((user) => {
             transporter.sendMail({
               to: user.email,
-              from: "no-reply@miniinsta.com",
+              from: process.env.USER,
               subject: "signup success",
               html: "<h1>welcome to MiniInstagram</h1>",
             });
