@@ -4,16 +4,19 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-const sendgribtransport = require("nodemailer-sendgrid-transport");
 
-const transporter = nodemailer.createTransport(
-  sendgribtransport({
-    auth: {
-      api_key:
-        "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",
-    },
-  })
-);
+const user = process.env.USER || "instaminiheroku@gmail.com";
+const pass = process.env.PASS || "instaminiheroku007";
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  service: "gmail",
+  auth: {
+    user,
+    pass,
+  },
+});
 
 router.post("/reset-password", (req, res) => {
   crypto.randomBytes(32, (err, buffer) => {
@@ -32,7 +35,7 @@ router.post("/reset-password", (req, res) => {
       user.save().then((user) => {
         transporter.sendMail({
           to: user.email,
-          from: "no-replay@insta.com",
+          from: process.env.USER,
           subject: "password reset",
           html: `
                     <p>You requested for password reset</p>
