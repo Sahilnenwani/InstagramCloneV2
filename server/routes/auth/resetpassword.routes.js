@@ -4,17 +4,22 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
-
-const user = process.env.USER;
-const pass = process.env.PASS;
+const {
+  USER,
+  PASS,
+  HOST,
+  MAILPORT,
+  SERVICE,
+  EMAIL,
+} = require("../../config/key");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  service: "gmail",
+  host: HOST,
+  port: MAILPORT,
+  service: SERVICE,
   auth: {
-    user,
-    pass,
+    user: USER,
+    pass: PASS,
   },
 });
 
@@ -35,11 +40,11 @@ router.post("/reset-password", (req, res) => {
       user.save().then((user) => {
         transporter.sendMail({
           to: user.email,
-          from: process.env.USER,
+          from: USER,
           subject: "password reset",
           html: `
                     <p>You requested for password reset</p>
-                    <h5>click in this <a href="http://localhost:3000/reset/${token}">link</a> to reset password</h5>
+                    <h5>click in this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h5>
                     `,
         });
         res.json({ message: "check your email" });

@@ -4,20 +4,16 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../../config/key");
 const nodemailer = require("nodemailer");
-
-const user = process.env.USER || "instaminiheroku@gmail.com";
-const pass = process.env.PASS || "instaminiheroku007";
+const { USER, PASS, HOST, MAILPORT, SERVICE } = require("../../config/key");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  service: "gmail",
+  host: HOST,
+  port: MAILPORT,
+  service: SERVICE,
   auth: {
-    user,
-    pass,
+    user: USER,
+    pass: PASS,
   },
 });
 
@@ -51,7 +47,7 @@ router.post("/signup", (req, res) => {
           .then((user) => {
             transporter.sendMail({
               to: user.email,
-              from: process.env.USER,
+              from: USER,
               subject: "signup success",
               html: "<h1>welcome to MiniInstagram</h1>",
             });
@@ -62,7 +58,6 @@ router.post("/signup", (req, res) => {
       });
     })
     .catch((err) => console.log(err));
-  // res.json({message:"successfully posted"})
 });
 
 module.exports = router;

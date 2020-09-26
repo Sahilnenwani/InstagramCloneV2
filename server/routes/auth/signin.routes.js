@@ -22,8 +22,6 @@ router.post("/signin", (req, res) => {
         .compare(password, savedUser.password)
         .then((doMatch) => {
           if (doMatch) {
-            // res.json({message:'successfully sigined in'})
-
             const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
             const { _id, name, email, followers, following, pic } = savedUser;
             res.json({
