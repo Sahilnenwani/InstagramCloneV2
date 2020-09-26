@@ -1,7 +1,3 @@
-// data.append("file",image)
-// data.append("upload_preset","insta-clone")
-// data.append("cloud_name","LastCode")
-// fetch("https://api.cloudinary.com/v1_1/lastcode/image/upload"
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../../App";
 import M from "materialize-css";
@@ -18,7 +14,6 @@ const Profile = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setPics(result.mypost);
       });
   }, []);
@@ -46,7 +41,6 @@ const Profile = () => {
           })
             .then((res) => res.json())
             .then((result) => {
-              //console.log(result)
               localStorage.setItem(
                 "user",
                 JSON.stringify({ ...state, pic: result.pic })
@@ -64,7 +58,6 @@ const Profile = () => {
     setImage(file);
   };
 
-  console.log(state);
   return (
     <div style={{ maxWidth: "550px", margin: "0px auto" }}>
       <div

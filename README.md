@@ -46,6 +46,11 @@ app.get('\*',(req,res)=>res.sendFile(path.resolve(\_\_dirname,'client','build','
 
 12 url create use and share you friends and client aur progaram manager to check and web site :)
 
+13 agr aap ne build ak dafa bana kr deply kara h usk baad aap code me kaam karty han toh 3 comment se change add kar skty han but envoirment variba manual add karne hogy
+git add .
+git commit -m "your commit"
+git push heroku master
+
 ---
 
 Email Api SendGrid
