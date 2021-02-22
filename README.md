@@ -56,5 +56,4 @@ git push heroku master
 Email Api SendGrid
 https://app.sendgrid.com
 
-Api Key is:
-SG.Oc9JMGhwSoyzgCsGjuWWAA.TJ48cLNQItl3PuzZd3fiqJlSgCIa5\_-PKF3rA79S6hk
+
